@@ -6,27 +6,8 @@ namespace App\Core;
 
 use App\Exceptions\FileNotFoundException;
 
-class View
+class View extends Singleton
 {
-    /**
-     * Instance variable.
-     */
-    private static $instance;
-
-    /**
-     * Required for the singleton pattern.
-     *
-     * @return mixed
-     */
-    public static function getInstance()
-    {
-        if (static::$instance === null) {
-            static::$instance = new static();
-        }
-
-        return static::$instance;
-    }
-
     /**
      * Make a view
      *

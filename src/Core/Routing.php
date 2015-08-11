@@ -6,27 +6,8 @@ namespace App\Core;
 
 use App\Exceptions\RoutingException;
 
-class Routing
+class Routing extends Singleton
 {
-    /**
-     * Instance variable.
-     */
-    private static $instance;
-
-    /**
-     * Required for the singleton pattern.
-     *
-     * @return mixed
-     */
-    public static function getInstance()
-    {
-        if (static::$instance === null) {
-            static::$instance = new static();
-        }
-
-        return static::$instance;
-    }
-
     /**
      * Request handler
      *

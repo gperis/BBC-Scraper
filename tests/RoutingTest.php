@@ -2,10 +2,10 @@
 
 class RoutingTest extends PHPUnit_Framework_TestCase
 {
-    public function testItShowsThe404Page()
+    public function testShow404IfRouteDoesntExist()
     {
-        $page = file_get_contents(config('app.base_url') . '/404');
+        @file_get_contents(config('app.base_url') . '/404');
 
-        $this->assertEquals(view('error.404'), $page);
+        $this->assertEquals('HTTP/1.1 404 Not Found', $http_response_header[0]);
     }
 }

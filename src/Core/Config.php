@@ -7,7 +7,7 @@ namespace App\Core;
 use App\Exceptions\ConfigNotFoundException;
 use App\Exceptions\FileNotFoundException;
 
-class Config
+class Config extends Singleton
 {
     /**
      * Config array
@@ -22,25 +22,6 @@ class Config
      * @var array
      */
     protected $loadedFiles = [];
-
-    /**
-     * Instance variable.
-     */
-    private static $instance;
-
-    /**
-     * Required for the singleton pattern.
-     *
-     * @return mixed
-     */
-    public static function getInstance()
-    {
-        if (static::$instance === null) {
-            static::$instance = new static();
-        }
-
-        return static::$instance;
-    }
 
     /**
      * Get a configuration variable.
